@@ -16,6 +16,7 @@
   "scripts": {
     "build": "bun build src/index.ts --outdir dist --target node",
     "format": "bun prettier --write .",
+    "test": "vitest",
     "tool": "bun run src/test-tool.ts",
     "typecheck": "bun tsc --noEmit --skipLibCheck"
   },
@@ -26,8 +27,10 @@
   "peerDependencies": {},
   "devDependencies": {
     "@types/bun": "latest",
+    "msw": "^2.10.2",
     "prettier": "^3.5.3",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
