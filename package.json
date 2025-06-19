@@ -1,0 +1,33 @@
+{
+  "name": "package-registry-mcp",
+  "version": "1.0.0",
+  "description": "MCP search for searching and getting up-to-date information about NPM, Cargo and Nuget packages.",
+  "author": "Christoffer Artmann <artgaard@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "modelcontextprotocol",
+    "mcp",
+    "npm",
+    "cargo"
+  ],
+  "private": true,
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node",
+    "format": "bun prettier --write .",
+    "tool": "bun run src/test-tool.ts",
+    "typecheck": "bun tsc --noEmit --skipLibCheck"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.0",
+    "zod": "^3.25.67"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.5.3",
+    "typescript": "^5"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}
