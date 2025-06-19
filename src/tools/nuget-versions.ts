@@ -29,11 +29,14 @@ server.tool(
       if (allVersions.length === 0 && response.items.length > 0) {
         try {
           // Fetch the latest version page (usually the last item)
-          const latestPageUrl = response.items[response.items.length - 1]['@id']
-          const pageResponse = await request<any>('GET', latestPageUrl)
+          const latestPageUrl =
+            response.items[response.items.length - 1]?.['@id']
+          if (latestPageUrl) {
+            const pageResponse = await request<any>('GET', latestPageUrl)
 
-          if (pageResponse.items) {
-            allVersions.push(...pageResponse.items)
+            if (pageResponse.items) {
+              allVersions.push(...pageResponse.items)
+            }
           }
         } catch (pageError) {
           console.error('Failed to fetch version page:', pageError)

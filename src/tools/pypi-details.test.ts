@@ -79,7 +79,7 @@ describe('pypi package details tool', () => {
 
     expect(versions.length).toBeGreaterThan(0)
     expect(response.releases['2.32.4']).toBeDefined()
-    expect(response.releases['2.32.4'][0].filename).toContain('2.32.4')
+    expect(response.releases['2.32.4']?.[0]?.filename).toContain('2.32.4')
   })
 
   it('should include vulnerability information', async () => {

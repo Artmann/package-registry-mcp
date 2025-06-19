@@ -53,9 +53,9 @@ describe('pypi package versions', () => {
     const latestVersionFiles = response.releases['2.32.4']
 
     expect(latestVersionFiles).toBeDefined()
-    expect(latestVersionFiles[0].filename).toContain('2.32.4')
-    expect(latestVersionFiles[0].packagetype).toEqual('bdist_wheel')
-    expect(latestVersionFiles[0].python_version).toEqual('py3')
+    expect(latestVersionFiles?.[0]?.filename).toContain('2.32.4')
+    expect(latestVersionFiles?.[0]?.packagetype).toEqual('bdist_wheel')
+    expect(latestVersionFiles?.[0]?.python_version).toEqual('py3')
   })
 
   it('should handle version metadata and upload info', async () => {
@@ -63,8 +63,8 @@ describe('pypi package versions', () => {
     const latestVersionFiles = response.releases['5.1.4']
 
     expect(latestVersionFiles).toBeDefined()
-    expect(latestVersionFiles[0].upload_time).toBeDefined()
-    expect(latestVersionFiles[0].size).toBeGreaterThan(0)
-    expect(latestVersionFiles[0].url).toContain('pythonhosted.org')
+    expect(latestVersionFiles?.[0]?.upload_time).toBeDefined()
+    expect(latestVersionFiles?.[0]?.size).toBeGreaterThan(0)
+    expect(latestVersionFiles?.[0]?.url).toContain('pythonhosted.org')
   })
 })

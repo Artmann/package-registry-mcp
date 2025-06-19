@@ -28,11 +28,14 @@ server.tool(
       if (allVersions.length === 0 && response.items.length > 0) {
         try {
           // Fetch the latest version page (usually the first item)
-          const latestPageUrl = response.items[response.items.length - 1]['@id']
-          const pageResponse = await request<any>('GET', latestPageUrl)
+          const latestPageUrl =
+            response.items[response.items.length - 1]?.['@id']
+          if (latestPageUrl) {
+            const pageResponse = await request<any>('GET', latestPageUrl)
 
-          if (pageResponse.items) {
-            allVersions.push(...pageResponse.items)
+            if (pageResponse.items) {
+              allVersions.push(...pageResponse.items)
+            }
           }
         } catch (pageError) {
           console.error('Failed to fetch version page:', pageError)
@@ -79,9 +82,9 @@ server.tool(
         listed: latestVersion?.listed,
         requireLicenseAcceptance: latestVersion?.requireLicenseAcceptance,
         minClientVersion: latestVersion?.minClientVersion,
-        dependencies: latestVersion?.dependencyGroups?.map((group) => ({
+        dependencies: latestVersion?.dependencyGroups?.map((group: any) => ({
           targetFramework: group.targetFramework,
-          dependencies: group.dependencies?.map((dep) => ({
+          dependencies: group.dependencies?.map((dep: any) => ({
             id: dep.id,
             range: dep.range
           }))
