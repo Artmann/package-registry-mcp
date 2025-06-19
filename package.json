@@ -1,21 +1,43 @@
 {
   "name": "package-registry-mcp",
   "version": "1.0.0",
-  "description": "MCP search for searching and getting up-to-date information about NPM, Cargo and Nuget packages.",
+  "description": "MCP server for searching and getting up-to-date information about NPM, Cargo and NuGet packages.",
   "author": "Christoffer Artmann <artgaard@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "modelcontextprotocol",
     "mcp",
+    "mcp-server",
+    "modelcontextprotocol",
     "npm",
-    "cargo"
+    "cargo",
+    "nuget",
+    "package-registry",
+    "claude",
+    "ai"
   ],
-  "private": true,
-  "module": "src/index.ts",
+  "homepage": "https://github.com/artmann/package-registry-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artmann/package-registry-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/artmann/package-registry-mcp/issues"
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "package-registry-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "type": "module",
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist --target node",
+    "build": "bun build src/index.ts --outdir dist --target node --format esm",
     "format": "bun prettier --write .",
+    "prepublishOnly": "npm run build",
     "test": "vitest",
     "tool": "bun run src/test-tool.ts",
     "typecheck": "bun tsc --noEmit --skipLibCheck"

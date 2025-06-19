@@ -1,0 +1,41 @@
+# Source files
+src/
+tsconfig.json
+vitest.config.ts
+
+# Development files
+.claude/
+.prettierrc.json
+.prettierignore
+bun.lock
+yarn.lock
+
+# Test files
+*.test.ts
+*.test.js
+__tests__/
+
+# Development tools
+src/test-tool.ts
+
+# Documentation (keep README.md)
+CLAUDE.md
+
+# Large example files
+NPM_Package_Details-*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

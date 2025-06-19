@@ -4,6 +4,59 @@ A Model Context Protocol (MCP) server that enables AI assistants and agents
 (Claude, Cursor, Copilot, etc.) to search package registries and retrieve
 up-to-date package information.
 
+## Getting Started
+
+### Claude Desktop
+
+Add this server to your Claude Desktop by adding the following to your
+`claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "package-registry": {
+      "command": "npx",
+      "args": ["-y", "package-registry-mcp"]
+    }
+  }
+}
+```
+
+The config file is typically located at:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+After adding the configuration, restart Claude Desktop.
+
+### Cursor
+
+In Cursor, you can configure MCP servers in your settings:
+
+1. Open Cursor Settings (Cmd/Ctrl + ,)
+2. Search for "MCP" or go to Extensions > MCP
+3. Add a new server with:
+   - **Name**: `package-registry`
+   - **Command**: `npx`
+   - **Args**: `["-y", "package-registry-mcp"]`
+
+### Claude Code
+
+For Claude Code, add this to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "package-registry": {
+      "command": "npx",
+      "args": ["-y", "package-registry-mcp"]
+    }
+  }
+}
+```
+
+After configuration, you'll have access to package search and information tools.
+
 ## Features
 
 - Search NPM packages
@@ -74,6 +127,20 @@ bun tool list-npm-package-versions '{"name": "react", "limit": 50}'
 - Latest version information
 
 ## Installation
+
+Install the package globally:
+
+```bash
+npm install -g package-registry-mcp
+```
+
+Or use directly with npx (no installation required):
+
+```bash
+npx package-registry-mcp
+```
+
+## Development
 
 ```bash
 npm install
