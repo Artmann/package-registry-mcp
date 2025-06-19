@@ -65,6 +65,7 @@ After configuration, you'll have access to package search and information tools.
 - Get detailed crate information
 - Search NuGet packages (.NET package registry)
 - Get detailed NuGet package information
+- Get detailed PyPI package information (Python package registry)
 - Real-time data directly from package registries
 
 ## Available Tools
@@ -254,6 +255,59 @@ bun tool list-nuget-package-versions '{"name": "Newtonsoft.Json", "limit": 50}'
 - All versions sorted by release date (newest first)
 - Latest version information
 
+### PyPI Tools
+
+Note: PyPI does not provide a JSON search API, so only package details and
+version listing are supported. For searching, please use the PyPI website
+directly at https://pypi.org/search/.
+
+#### `get-pypi-package-details`
+
+Get detailed information about a specific PyPI package.
+
+**Parameters:**
+
+- `name` (string): Exact package name
+
+**Example:**
+
+```bash
+bun tool get-pypi-package-details '{"name": "requests"}'
+```
+
+**Returns detailed information including:**
+
+- Package metadata (name, description, version, license)
+- Author and maintainer information
+- Dependencies and Python version requirements
+- Classifiers and keywords
+- Project URLs and documentation links
+- Download statistics
+- Vulnerability information
+- Last 50 versions (newest first)
+
+#### `list-pypi-package-versions`
+
+List all versions of a specific PyPI package.
+
+**Parameters:**
+
+- `name` (string): Exact package name
+- `limit` (number, optional): Maximum number of versions to return (1-1000,
+  default: 100)
+
+**Example:**
+
+```bash
+bun tool list-pypi-package-versions '{"name": "django", "limit": 50}'
+```
+
+**Returns:**
+
+- Package name and total version count
+- All versions sorted by release date (newest first)
+- Latest version information
+
 ## Installation
 
 Install the package globally:
@@ -304,6 +358,9 @@ bun tool <tool-name> <json-arguments>
 # bun tool search-nuget-packages '{"query": "newtonsoft"}'
 # bun tool get-nuget-package-details '{"name": "Newtonsoft.Json"}'
 # bun tool list-nuget-package-versions '{"name": "Newtonsoft.Json", "limit": 50}'
+# PyPI Examples:
+# bun tool get-pypi-package-details '{"name": "requests"}'
+# bun tool list-pypi-package-versions '{"name": "django", "limit": 50}'
 ```
 
 ## Requirements
