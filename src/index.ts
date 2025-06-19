@@ -1,7 +1,9 @@
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 
 import { server } from './server'
-import './tools/npm-search' // Import to register tools
+import './tools/npm-details'
+import './tools/npm-search'
+import './tools/npm-versions'
 
 async function main() {
   const transport = new StdioServerTransport()

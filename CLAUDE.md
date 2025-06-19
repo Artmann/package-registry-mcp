@@ -24,7 +24,10 @@ bun run format
 
 # Test individual MCP tools
 bun tool <tool-name> <json-arguments>
-# Example: bun tool search-npm-packages '{"query": "react"}'
+# Examples:
+# bun tool search-npm-packages '{"query": "react"}'
+# bun tool get-npm-package-details '{"name": "react"}'
+# bun tool list-npm-package-versions '{"name": "react", "limit": 50}'
 ```
 
 ## Architecture
@@ -49,6 +52,8 @@ module resolution. Key settings:
 ## Code Style Guidelines
 
 - Separate imports of third party packages and local files
+- Sort import in alphabetical order, based on the package name or import path.
+  Separate packages and local file imports with an empty line.
 
 ## Development Workflow
 
