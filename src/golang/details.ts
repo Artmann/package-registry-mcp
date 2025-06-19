@@ -1,4 +1,4 @@
-import { request } from '../request'
+import { request, requestText } from '../request'
 import type {
   GoModuleInfo,
   GoModuleVersionList,
@@ -15,11 +15,7 @@ export async function getPackageDetails(
 
     // Get all versions (this endpoint returns plain text, not JSON)
     const versionsUrl = `https://proxy.golang.org/${module}/@v/list`
-    const response = await fetch(versionsUrl)
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-    }
-    const versionsText = await response.text()
+    const versionsText = await requestText('GET', versionsUrl)
     const versions = versionsText
       .trim()
       .split('\n')
