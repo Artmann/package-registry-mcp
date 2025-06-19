@@ -6,6 +6,28 @@ up-to-date package information.
 
 ## Getting Started
 
+### Cursor
+
+In Cursor, you can configure MCP servers in your settings:
+
+1. Open Cursor Settings (Cmd/Ctrl + ,)
+2. Search for "MCP" or go to Extensions > MCP
+3. Add a new server with:
+   - **Name**: `package-registry`
+   - **Command**: `npx`
+   - **Args**: `["-y", "package-registry-mcp"]`
+
+### Claude Code
+
+For Claude Code, run the following command in your terminal:
+
+```shell
+claude mcp add package-registry 'npx -y package-registry-mcp'
+
+```
+
+After configuration, you'll have access to package search and information tools.
+
 ### Claude Desktop
 
 Add this server to your Claude Desktop by adding the following to your
@@ -28,34 +50,6 @@ The config file is typically located at:
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 After adding the configuration, restart Claude Desktop.
-
-### Cursor
-
-In Cursor, you can configure MCP servers in your settings:
-
-1. Open Cursor Settings (Cmd/Ctrl + ,)
-2. Search for "MCP" or go to Extensions > MCP
-3. Add a new server with:
-   - **Name**: `package-registry`
-   - **Command**: `npx`
-   - **Args**: `["-y", "package-registry-mcp"]`
-
-### Claude Code
-
-For Claude Code, add this to your MCP configuration:
-
-```json
-{
-  "mcpServers": {
-    "package-registry": {
-      "command": "npx",
-      "args": ["-y", "package-registry-mcp"]
-    }
-  }
-}
-```
-
-After configuration, you'll have access to package search and information tools.
 
 ## Features
 
