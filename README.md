@@ -66,6 +66,7 @@ After configuration, you'll have access to package search and information tools.
 - Search NuGet packages (.NET package registry)
 - Get detailed NuGet package information
 - Get detailed PyPI package information (Python package registry)
+- Get detailed Go module information (Go package registry)
 - Real-time data directly from package registries
 
 ## Available Tools
@@ -308,6 +309,56 @@ bun tool list-pypi-package-versions '{"name": "django", "limit": 50}'
 - All versions sorted by release date (newest first)
 - Latest version information
 
+### Go Tools
+
+Note: pkg.go.dev does not provide a JSON search API, so only package details and
+version listing are supported. For searching, please use the pkg.go.dev website
+directly at https://pkg.go.dev/search/.
+
+#### `get-golang-package-details`
+
+Get detailed information about a specific Go module/package.
+
+**Parameters:**
+
+- `module` (string): Exact module path (e.g., "github.com/gin-gonic/gin")
+
+**Example:**
+
+```bash
+bun tool get-golang-package-details '{"module": "github.com/gin-gonic/gin"}'
+```
+
+**Returns detailed information including:**
+
+- Module path and latest version
+- Publication date and repository information
+- VCS (version control system) details
+- pkg.go.dev and go get command links
+- Last 50 versions (newest first)
+
+#### `list-golang-package-versions`
+
+List all versions of a specific Go module/package.
+
+**Parameters:**
+
+- `module` (string): Exact module path
+- `limit` (number, optional): Maximum number of versions to return (1-1000,
+  default: 100)
+
+**Example:**
+
+```bash
+bun tool list-golang-package-versions '{"module": "github.com/gorilla/mux", "limit": 50}'
+```
+
+**Returns:**
+
+- Module path and total version count
+- All versions sorted by release date (newest first)
+- Latest version information
+
 ## Installation
 
 Install the package globally:
@@ -361,6 +412,9 @@ bun tool <tool-name> <json-arguments>
 # PyPI Examples:
 # bun tool get-pypi-package-details '{"name": "requests"}'
 # bun tool list-pypi-package-versions '{"name": "django", "limit": 50}'
+# Go Examples:
+# bun tool get-golang-package-details '{"module": "github.com/gin-gonic/gin"}'
+# bun tool list-golang-package-versions '{"module": "github.com/gorilla/mux", "limit": 50}'
 ```
 
 ## Requirements
