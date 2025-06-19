@@ -61,13 +61,16 @@ After configuration, you'll have access to package search and information tools.
 
 - Search NPM packages
 - Get detailed NPM package information
-- Search Cargo crates (Rust) _[Coming Soon]_
+- Search crates.io (Rust package registry)
+- Get detailed crate information
 - Search NuGet packages (.NET) _[Coming Soon]_
 - Real-time data directly from package registries
 
 ## Available Tools
 
-### `search-npm-packages`
+### NPM Tools
+
+#### `search-npm-packages`
 
 Search the NPM registry for packages matching a query.
 
@@ -82,13 +85,13 @@ Search the NPM registry for packages matching a query.
 bun tool search-npm-packages '{"query": "react", "limit": 5}'
 ```
 
-### `get-npm-package-details`
+#### `get-npm-package-details`
 
 Get detailed information about a specific NPM package.
 
 **Parameters:**
 
-- `name` (string): Exact package name
+- `name` (string): Exact crate name
 
 **Example:**
 
@@ -104,13 +107,13 @@ bun tool get-npm-package-details '{"name": "react"}'
 - Repository and homepage links
 - Last 50 versions (newest first)
 
-### `list-npm-package-versions`
+#### `list-npm-package-versions`
 
 List all versions of a specific NPM package.
 
 **Parameters:**
 
-- `name` (string): Exact package name
+- `name` (string): Exact crate name
 - `limit` (number, optional): Maximum number of versions to return (1-1000,
   default: 100)
 
@@ -125,6 +128,68 @@ bun tool list-npm-package-versions '{"name": "react", "limit": 50}'
 - Package name and total version count
 - All versions sorted by release date (newest first)
 - Latest version information
+
+### crates.io Tools
+
+#### `search-cargo-packages`
+
+Search crates.io for Rust crates matching a query.
+
+**Parameters:**
+
+- `query` (string): Search term for crates
+- `limit` (number, optional): Maximum number of results (1-100, default: 10)
+
+**Example:**
+
+```bash
+bun tool search-cargo-packages '{"query": "serde", "limit": 5}'
+```
+
+#### `get-cargo-package-details`
+
+Get detailed information about a specific crate from crates.io.
+
+**Parameters:**
+
+- `name` (string): Exact crate name
+
+**Example:**
+
+```bash
+bun tool get-cargo-package-details '{"name": "serde"}'
+```
+
+**Returns detailed information including:**
+
+- Crate metadata (name, description, version, license)
+- Keywords and categories
+- Download statistics (total and recent)
+- Features and crate size
+- Repository, homepage, and documentation links
+- Last 50 versions (newest first)
+
+#### `list-cargo-package-versions`
+
+List all versions of a specific crate from crates.io.
+
+**Parameters:**
+
+- `name` (string): Exact crate name
+- `limit` (number, optional): Maximum number of versions to return (1-1000,
+  default: 100)
+
+**Example:**
+
+```bash
+bun tool list-cargo-package-versions '{"name": "serde", "limit": 50}'
+```
+
+**Returns:**
+
+- Crate name and total version count
+- All versions sorted by release date (newest first)
+- Latest and max stable version information
 
 ## Installation
 
@@ -164,10 +229,14 @@ bun run format
 
 # Test individual MCP tools
 bun tool <tool-name> <json-arguments>
-# Examples:
+# NPM Examples:
 # bun tool search-npm-packages '{"query": "react"}'
 # bun tool get-npm-package-details '{"name": "react"}'
 # bun tool list-npm-package-versions '{"name": "react", "limit": 50}'
+# crates.io Examples:
+# bun tool search-cargo-packages '{"query": "serde"}'
+# bun tool get-cargo-package-details '{"name": "serde"}'
+# bun tool list-cargo-package-versions '{"name": "serde", "limit": 50}'
 ```
 
 ## Requirements

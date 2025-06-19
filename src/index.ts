@@ -3,6 +3,9 @@
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 
 import { server } from './server'
+import './tools/cargo-details'
+import './tools/cargo-search'
+import './tools/cargo-versions'
 import './tools/npm-details'
 import './tools/npm-search'
 import './tools/npm-versions'
