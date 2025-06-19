@@ -63,7 +63,8 @@ After configuration, you'll have access to package search and information tools.
 - Get detailed NPM package information
 - Search crates.io (Rust package registry)
 - Get detailed crate information
-- Search NuGet packages (.NET) _[Coming Soon]_
+- Search NuGet packages (.NET package registry)
+- Get detailed NuGet package information
 - Real-time data directly from package registries
 
 ## Available Tools
@@ -191,6 +192,68 @@ bun tool list-cargo-package-versions '{"name": "serde", "limit": 50}'
 - All versions sorted by release date (newest first)
 - Latest and max stable version information
 
+### NuGet Tools
+
+#### `search-nuget-packages`
+
+Search the NuGet registry for .NET packages matching a query.
+
+**Parameters:**
+
+- `query` (string): Search term for packages
+- `limit` (number, optional): Maximum number of results (1-100, default: 10)
+
+**Example:**
+
+```bash
+bun tool search-nuget-packages '{"query": "newtonsoft", "limit": 5}'
+```
+
+#### `get-nuget-package-details`
+
+Get detailed information about a specific NuGet package.
+
+**Parameters:**
+
+- `name` (string): Exact package name
+
+**Example:**
+
+```bash
+bun tool get-nuget-package-details '{"name": "Newtonsoft.Json"}'
+```
+
+**Returns detailed information including:**
+
+- Package metadata (name, description, version, license)
+- Authors and project information
+- Target frameworks and dependencies
+- Download statistics and verification status
+- Project, license, and icon URLs
+- Last 50 versions (newest first)
+
+#### `list-nuget-package-versions`
+
+List all versions of a specific NuGet package.
+
+**Parameters:**
+
+- `name` (string): Exact package name
+- `limit` (number, optional): Maximum number of versions to return (1-1000,
+  default: 100)
+
+**Example:**
+
+```bash
+bun tool list-nuget-package-versions '{"name": "Newtonsoft.Json", "limit": 50}'
+```
+
+**Returns:**
+
+- Package name and total version count
+- All versions sorted by release date (newest first)
+- Latest version information
+
 ## Installation
 
 Install the package globally:
@@ -237,6 +300,10 @@ bun tool <tool-name> <json-arguments>
 # bun tool search-cargo-packages '{"query": "serde"}'
 # bun tool get-cargo-package-details '{"name": "serde"}'
 # bun tool list-cargo-package-versions '{"name": "serde", "limit": 50}'
+# NuGet Examples:
+# bun tool search-nuget-packages '{"query": "newtonsoft"}'
+# bun tool get-nuget-package-details '{"name": "Newtonsoft.Json"}'
+# bun tool list-nuget-package-versions '{"name": "Newtonsoft.Json", "limit": 50}'
 ```
 
 ## Requirements

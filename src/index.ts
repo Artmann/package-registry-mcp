@@ -9,6 +9,9 @@ import './tools/cargo-versions'
 import './tools/npm-details'
 import './tools/npm-search'
 import './tools/npm-versions'
+import './tools/nuget-details'
+import './tools/nuget-search'
+import './tools/nuget-versions'
 
 async function main() {
   const transport = new StdioServerTransport()
