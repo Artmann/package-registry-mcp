@@ -1,5 +1,5 @@
 import { request } from '../request'
-import { PyPIPackageDetailsResponse } from './types'
+import type { PyPIPackageDetailsResponse } from './types'
 
 export async function getPackageDetails(
   name: string

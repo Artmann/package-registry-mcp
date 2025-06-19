@@ -1,5 +1,9 @@
 import { request } from '../request'
-import { GoModuleInfo, GoModuleVersionList, GoPackageDetails } from './types'
+import type {
+  GoModuleInfo,
+  GoModuleVersionList,
+  GoPackageDetails
+} from './types'
 
 export async function getPackageDetails(
   module: string
@@ -29,11 +33,11 @@ export async function getPackageDetails(
 
       const aParts = aClean.split('.').map((part) => {
         // Handle pre-release versions and additional parts
-        const num = parseInt(part.split('-')[0])
+        const num = parseInt(part.split('-')[0] || '0')
         return isNaN(num) ? 0 : num
       })
       const bParts = bClean.split('.').map((part) => {
-        const num = parseInt(part.split('-')[0])
+        const num = parseInt(part.split('-')[0] || '0')
         return isNaN(num) ? 0 : num
       })
 
