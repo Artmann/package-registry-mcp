@@ -8,9 +8,11 @@ up-to-date package information.
 
 ### Cursor
 
-In Cursor, you can configure MCP servers in your settings:
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=package-registry&config=eyJjb21tYW5kIjoibnB4IC15IHBhY2thZ2UtcmVnaXN0cnktbWNwIn0%3D)
 
-1. Open Cursor Settings (Cmd/Ctrl + ,)
+Alternatively, in Cursor, you can configure MCP servers in your settings:
+
+1. Open Cursor Settings (`Cmd/Ctrl + ,`)
 2. Search for "MCP" or go to Extensions > MCP
 3. Add a new server with:
    - **Name**: `package-registry`
