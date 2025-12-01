@@ -24,7 +24,7 @@ Alternatively, in Cursor, you can configure MCP servers in your settings:
 For Claude Code, run the following command in your terminal:
 
 ```shell
-claude mcp add -s user package-registry 'npx -y package-registry-mcp'
+claude mcp add -s user package-registry npx package-registry-mcp
 
 ```
 
