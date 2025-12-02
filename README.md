@@ -14,7 +14,7 @@ up-to-date package information.
 
 ### Cursor
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=package-registry&config=eyJjb21tYW5kIjoibnB4IC15IHBhY2thZ2UtcmVnaXN0cnktbWNwIn0%3D)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=package-registry&config=eyJjb21tYW5kIjoibnB4IHBhY2thZ2UtcmVnaXN0cnktbWNwIn0%3D)
 
 Alternatively, in Cursor, you can configure MCP servers in your settings:
 
@@ -23,7 +23,7 @@ Alternatively, in Cursor, you can configure MCP servers in your settings:
 3. Add a new server with:
    - **Name**: `package-registry`
    - **Command**: `npx`
-   - **Args**: `["-y", "package-registry-mcp"]`
+   - **Args**: `["package-registry-mcp"]`
 
 ### Claude Code
 
@@ -46,7 +46,7 @@ Add this server to your Claude Desktop by adding the following to your
   "mcpServers": {
     "package-registry": {
       "command": "npx",
-      "args": ["-y", "package-registry-mcp"]
+      "args": ["package-registry-mcp"]
     }
   }
 }
@@ -375,49 +375,9 @@ Or use directly with npx (no installation required):
 npx package-registry-mcp
 ```
 
-## Development
+## Contributing
 
-```bash
-npm install
-# or
-bun install
-# or
-yarn install
-```
-
-## Development
-
-```bash
-# Install dependencies
-bun install
-
-# Build the server
-bun run build
-
-# Format code
-bun run format
-
-# Test individual MCP tools
-bun tool <tool-name> <json-arguments>
-# NPM Examples:
-# bun tool search-npm-packages '{"query": "react"}'
-# bun tool get-npm-package-details '{"name": "react"}'
-# bun tool list-npm-package-versions '{"name": "react", "limit": 50}'
-# crates.io Examples:
-# bun tool search-cargo-packages '{"query": "serde"}'
-# bun tool get-cargo-package-details '{"name": "serde"}'
-# bun tool list-cargo-package-versions '{"name": "serde", "limit": 50}'
-# NuGet Examples:
-# bun tool search-nuget-packages '{"query": "newtonsoft"}'
-# bun tool get-nuget-package-details '{"name": "Newtonsoft.Json"}'
-# bun tool list-nuget-package-versions '{"name": "Newtonsoft.Json", "limit": 50}'
-# PyPI Examples:
-# bun tool get-pypi-package-details '{"name": "requests"}'
-# bun tool list-pypi-package-versions '{"name": "django", "limit": 50}'
-# Go Examples:
-# bun tool get-golang-package-details '{"module": "github.com/gin-gonic/gin"}'
-# bun tool list-golang-package-versions '{"module": "github.com/gorilla/mux", "limit": 50}'
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
 
 ## Requirements
 
