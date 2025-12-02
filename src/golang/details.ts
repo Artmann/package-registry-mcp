@@ -1,9 +1,5 @@
 import { request, requestText } from '../request'
-import type {
-  GoModuleInfo,
-  GoModuleVersionList,
-  GoPackageDetails
-} from './types'
+import type { GoModuleInfo, GoPackageDetails } from './types'
 
 export async function getPackageDetails(
   module: string
