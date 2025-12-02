@@ -84,6 +84,7 @@ After adding the configuration, restart Claude Desktop.
 - Get detailed NuGet package information
 - Get detailed PyPI package information (Python package registry)
 - Get detailed Go module information (Go package registry)
+- Search GitHub Security Advisories for vulnerabilities
 - Real-time data directly from package registries
 
 ## Available Tools
@@ -375,6 +376,76 @@ bun tool list-golang-package-versions '{"module": "github.com/gorilla/mux", "lim
 - Module path and total version count
 - All versions sorted by release date (newest first)
 - Latest version information
+
+### GitHub Security Advisory Tools
+
+#### `search-github-advisories`
+
+Search the GitHub Security Advisory Database for vulnerabilities.
+
+**Parameters:**
+
+- `ecosystem` (string, optional): Filter by package ecosystem (`npm`, `pip`,
+  `maven`, `nuget`, `go`, `rust`, `rubygems`, `composer`, `pub`, `swift`,
+  `erlang`, `actions`, `other`)
+- `severity` (string, optional): Filter by severity level (`unknown`, `low`,
+  `medium`, `high`, `critical`)
+- `type` (string, optional): Filter by advisory type (`reviewed`, `malware`,
+  `unreviewed`)
+- `cveId` (string, optional): Filter by CVE identifier
+- `limit` (number, optional): Maximum number of results (1-100, default: 30)
+
+**Example:**
+
+```bash
+bun tool search-github-advisories '{"ecosystem": "npm", "severity": "critical", "limit": 5}'
+```
+
+#### `get-github-advisory`
+
+Get detailed information about a specific GitHub Security Advisory.
+
+**Parameters:**
+
+- `ghsaId` (string): The GHSA identifier (e.g., `GHSA-grv7-fg5c-xmjg`)
+
+**Example:**
+
+```bash
+bun tool get-github-advisory '{"ghsaId": "GHSA-grv7-fg5c-xmjg"}'
+```
+
+**Returns detailed information including:**
+
+- Advisory metadata (GHSA ID, CVE ID, summary, description)
+- Severity and CVSS score
+- Affected packages and vulnerable version ranges
+- Patched versions
+- CWE classifications
+- References and credits
+
+#### `get-package-advisories`
+
+Get all security advisories affecting a specific package.
+
+**Parameters:**
+
+- `ecosystem` (string): The package ecosystem (`npm`, `pip`, `maven`, etc.)
+- `packageName` (string): The package name (e.g., `braces`, `lodash`)
+- `severity` (string, optional): Filter by severity level
+- `limit` (number, optional): Maximum number of results (1-100, default: 30)
+
+**Example:**
+
+```bash
+bun tool get-package-advisories '{"ecosystem": "npm", "packageName": "braces"}'
+```
+
+**Returns:**
+
+- All known security advisories for the specified package
+- Vulnerable version ranges and patched versions
+- Severity ratings and CVSS scores
 
 ## Installation
 
