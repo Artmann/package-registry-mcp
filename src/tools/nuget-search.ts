@@ -3,12 +3,14 @@ import { z } from 'zod'
 import { search } from '../nuget'
 import { server } from '../server'
 
-server.tool(
+server.registerTool(
   'search-nuget-packages',
-  'Search the NuGet registry for packages',
   {
-    limit: z.number().min(1).max(100).default(10),
-    query: z.string().min(1, 'Query must be at least 1 character long')
+    description: 'Search the NuGet registry for packages',
+    inputSchema: {
+      limit: z.number().min(1).max(100).default(10),
+      query: z.string().min(1, 'Query must be at least 1 character long')
+    }
   },
   async ({ limit, query }) => {
     const results = await search(query, { limit })

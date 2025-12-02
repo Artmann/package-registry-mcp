@@ -3,12 +3,14 @@ import { z } from 'zod'
 import { getPackageDetails } from '../pypi'
 import { server } from '../server'
 
-server.tool(
+server.registerTool(
   'list-pypi-package-versions',
-  'List all versions of a specific PyPI package',
   {
-    name: z.string().min(1, 'Package name must be at least 1 character long'),
-    limit: z.number().min(1).max(1000).default(100).optional()
+    description: 'List all versions of a specific PyPI package',
+    inputSchema: {
+      name: z.string().min(1, 'Package name must be at least 1 character long'),
+      limit: z.number().min(1).max(1000).default(100).optional()
+    }
   },
   async ({ name, limit = 100 }) => {
     try {

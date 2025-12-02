@@ -3,12 +3,16 @@ import { z } from 'zod'
 import { getPackageDetails } from '../golang'
 import { server } from '../server'
 
-server.tool(
+server.registerTool(
   'list-golang-package-versions',
-  'List all versions of a specific Go module/package',
   {
-    module: z.string().min(1, 'Module path must be at least 1 character long'),
-    limit: z.number().min(1).max(1000).default(100).optional()
+    description: 'List all versions of a specific Go module/package',
+    inputSchema: {
+      module: z
+        .string()
+        .min(1, 'Module path must be at least 1 character long'),
+      limit: z.number().min(1).max(1000).default(100).optional()
+    }
   },
   async ({ module, limit = 100 }) => {
     try {

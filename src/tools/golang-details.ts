@@ -3,11 +3,13 @@ import { z } from 'zod'
 import { getPackageDetails } from '../golang'
 import { server } from '../server'
 
-server.tool(
+server.registerTool(
   'get-golang-package-details',
-  'Get detailed information about a specific Go module/package',
   {
-    module: z.string().min(1, 'Module path must be at least 1 character long')
+    description: 'Get detailed information about a specific Go module/package',
+    inputSchema: {
+      module: z.string().min(1, 'Module path must be at least 1 character long')
+    }
   },
   async ({ module }) => {
     try {
