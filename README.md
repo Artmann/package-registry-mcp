@@ -1,9 +1,12 @@
 # Package Registry MCP Server
 
-[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/artmann/package-registry-mcp)](https://archestra.ai/mcp-catalog/artmann__package-registry-mcp)
 A Model Context Protocol (MCP) server that enables AI assistants and agents
 (Claude, Cursor, Copilot, etc.) to search package registries and retrieve
 up-to-date package information.
+
+<p align="center">
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/artmann/package-registry-mcp)](https://archestra.ai/mcp-catalog/artmann__package-registry-mcp)
+</p>
 
 ## Getting Started
 
