@@ -8,12 +8,21 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Test (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22, 24, 25]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -34,6 +43,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -46,12 +60,21 @@ jobs:
         run: bun run typecheck
 
   build:
-    name: Build
+    name: Build (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22, 24, 25]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -76,6 +99,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
