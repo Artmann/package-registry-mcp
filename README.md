@@ -5,6 +5,21 @@ A Model Context Protocol (MCP) server that enables AI assistants and agents
 up-to-date package information.
 
 <p align="center">
+   <a href="https://www.npmjs.com/package/package-registry-mcp">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/package-registry-mcp" />
+   </a>
+   <a href="https://www.npmjs.com/package/package-registry-mcp">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/package-registry-mcp" />
+   </a>
+   <a href="https://github.com/Artmann/package-registry-mcp/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/Artmann/package-registry-mcp" />
+   </a>
+   <a href="https://nodejs.org">
+      <img alt="Node.js" src="https://img.shields.io/node/v/package-registry-mcp" />
+   </a>
+   <a href="https://github.com/Artmann/package-registry-mcp">
+      <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Artmann/package-registry-mcp" />
+   </a>
    <a href="https://archestra.ai/mcp-catalog/artmann__package-registry-mcp">
       <img alt="Trust Score" src="https://archestra.ai/mcp-catalog/api/badge/quality/artmann/package-registry-mcp" />
    </a>
