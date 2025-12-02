@@ -5,7 +5,9 @@ A Model Context Protocol (MCP) server that enables AI assistants and agents
 up-to-date package information.
 
 <p align="center">
-[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/artmann/package-registry-mcp)](https://archestra.ai/mcp-catalog/artmann__package-registry-mcp)
+   <a href="https://archestra.ai/mcp-catalog/artmann__package-registry-mcp">
+      <img alt="Trust Score" src="https://archestra.ai/mcp-catalog/api/badge/quality/artmann/package-registry-mcp" />
+   </a>
 </p>
 
 ## Getting Started
