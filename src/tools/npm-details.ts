@@ -3,11 +3,13 @@ import { z } from 'zod'
 import { getPackageDetails } from '../npm'
 import { server } from '../server'
 
-server.tool(
+server.registerTool(
   'get-npm-package-details',
-  'Get detailed information about a specific NPM package',
   {
-    name: z.string().min(1, 'Package name must be at least 1 character long')
+    description: 'Get detailed information about a specific NPM package',
+    inputSchema: {
+      name: z.string().min(1, 'Package name must be at least 1 character long')
+    }
   },
   async ({ name }) => {
     try {

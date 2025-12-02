@@ -4,11 +4,13 @@ import { getPackageDetails } from '../nuget'
 import { request } from '../request'
 import { server } from '../server'
 
-server.tool(
+server.registerTool(
   'get-nuget-package-details',
-  'Get detailed information about a specific NuGet package',
   {
-    name: z.string().min(1, 'Package name must be at least 1 character long')
+    description: 'Get detailed information about a specific NuGet package',
+    inputSchema: {
+      name: z.string().min(1, 'Package name must be at least 1 character long')
+    }
   },
   async ({ name }) => {
     try {
